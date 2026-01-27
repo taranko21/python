@@ -10,7 +10,7 @@ while(1):
     print("4.-Eliminar datos")
     print("6.-Cerrar conexion")
     print("7.-Break")
-    opcion = input("Escriba un numero del menu para realizar una tarea")
+    opcion = input("Escriba un numero del menu para realizar una tarea: ")
     
     
     match opcion: 
