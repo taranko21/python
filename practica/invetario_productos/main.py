@@ -1,11 +1,6 @@
 from dataBase import DataBaseInventario
 
 
-nombre_tabla = input("Escriba el nombre de la tabla")
-producto = input("Escribe el nombre del producto")
-precio = input("Escribe el precio del producto")
-cantidad = input("Escribe la cantidad que hay de ese producto")
-
 print("Bienvenido a la Mini-tiendita")
 while(1):   
     print("////////MENU DE OPCIONES////////")
