@@ -15,32 +15,34 @@ while(1):
     match opcion: 
         case 1:
             nombre_tabla = input("Escriba el nombre de la tabla")
-            producto = input("Escribe el nombre del producto")
-            precio = input("Escribe el precio del producto")
-            cantidad = input("Escribe la cantidad que hay de ese producto")
-            db = DataBaseInventario(nombre_tabla,producto, precio, cantidad)
+            db = DataBaseInventario(nombre_tabla)
             db.crear_tabla
             
         case 2:
             nombre_tabla = input("Escriba el nombre de la tabla")
             producto = input("Escribe el nombre del producto")
-            precio = input("Escribe el precio del producto")
-            cantidad = input("Escribe la cantidad que hay de ese producto")
-            db = DataBaseInventario(nombre_tabla, producto,precio, cantidad)
-            db.insertar_datos
+            precio = float(input("Escribe el precio del producto"))
+            cantidad = int(input("Escribe la cantidad que hay de ese producto"))
+            db = DataBaseInventario(nombre_tabla)
+            db.insertar_datos(producto, precio, cantidad)
             
         case 3:
             nombre_tabla = input("Escriba el nombre de la tabla")
             db = DataBaseInventario(nombre_tabla)
-            db.consultar_datos
+            datos = db.consultar_datos()
+            for row in datos:
+                print(row)
             
         case 4:
             nombre_tabla = input("Escriba el nombre de la tabla")
             producto = input("Escribe el nombre del producto")
-            db = DataBaseInventario(nombre_tabla, producto)
-            db.elimininar_datos
+            db = DataBaseInventario(nombre_tabla)
+            db.elimininar_datos(producto)
             
         case 5:
-            db = DataBaseInventario()
-            db.elimininar_datos
+            db = DataBaseInventario("temp")
+            db.cerrar_conexion()
             break
+        case _:
+            print("Opcion incorrecta. Seleccione una opcion del menu. ")
+            
