@@ -1,23 +1,20 @@
 import sqlite3
 
 
-conexion = sqlite3.connect("productos.db")
-cursor = conexion.cursor()
-
-
 class DataBaseInventario: 
     
     
-    def __init__(self,nombre_tabla, nombre, precio, cantidad):
+    def __init__(self,nombre_tabla, nombre=None, precio = None, cantidad = None):
         self.nombre_tabla = nombre_tabla
         self.nombre = nombre
         self.precio = precio
         self.cantidad = cantidad
-       
+        self.conexion = sqlite3.connect("productos.db")
+        self.cursor = self.conexion.cursor()
         
     #----------------------Funcion para crear una tabla
     def crear_tabla(self):    
-        cursor.execute(
+        self.cursor.execute(
             f"""
             CREATE TABLE IF NOT EXISTS {self.nombre_tabla}  (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,27 +24,31 @@ class DataBaseInventario:
             )    
             """
         )
-        conexion.commit()
+        self.conexion.commit()
 
     #--------------------Funcion para insertar datos a una tabla
-    def insertar_datos(self):
-        cursor.execute(
-            f"INSERT INTO {self.nombre_tabla} ({self.nombre}, {self.precio}, {self.cantidad}) VALUES (?,?,?)"
+    def insertar_datos(self, nombre,precio,cantidad):
+        self.cursor.execute(
+            f"INSERT INTO {self.nombre_tabla} ({self.nombre}, {self.precio}, {self.cantidad}) VALUES (?,?,?)",
+            (nombre,precio,cantidad)
         )
         
     #------------------------Funcion para consultar datos de una tabla
     def consultar_datos(self):
-        cursor.execute(
+        self.cursor.execute(
             f"SELECT * FROM {self.nombre_tabla} "
         )
+        rows =self.cursor.fetchall()
+        return rows
         
     #------------------------Funcion para eliminar datos de una tabla            
-    def elimininar_datos(self):
-        cursor.execute(
+    def elimininar_datos(self,nombre):
+        self.cursor.execute(
             f"DELETE FROM {self.nombre_tabla} WHERE {self.nombre}"
         )
+        self.conexion_commit()
         
     #------------------------Funcion para cerrar conexion de una database
     def cerrar_conexion(self):
-        conexion.close()
+        self.conexion.close()
     
