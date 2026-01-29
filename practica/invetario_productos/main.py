@@ -14,28 +14,28 @@ while(1):
     
     match opcion: 
         case "1":
-            nombre_tabla = input("Escriba el nombre de la tabla")
+            nombre_tabla = input("Escriba el nombre de la tabla: ")
             db = DataBaseInventario(nombre_tabla)
             db.crear_tabla
             
         case "2":
-            nombre_tabla = input("Escriba el nombre de la tabla")
-            producto = input("Escribe el nombre del producto")
-            precio = float(input("Escribe el precio del producto"))
-            cantidad = int(input("Escribe la cantidad que hay de ese producto"))
+            nombre_tabla = input("Escriba el nombre de la tabla: ")
+            producto = input("Escribe el nombre del producto: ")
+            precio = float(input("Escribe el precio del producto: "))
+            cantidad = int(input("Escribe la cantidad que hay de ese producto: "))
             db = DataBaseInventario(nombre_tabla)
             db.insertar_datos(producto, precio, cantidad)
             
         case "3":
-            nombre_tabla = input("Escriba el nombre de la tabla")
+            nombre_tabla = input("Escriba el nombre de la tabla: ")
             db = DataBaseInventario(nombre_tabla)
             datos = db.consultar_datos()
             for row in datos:
                 print(row)
             
         case "4":
-            nombre_tabla = input("Escriba el nombre de la tabla")
-            producto = input("Escribe el nombre del producto")
+            nombre_tabla = input("Escriba el nombre de la tabla: ")
+            producto = input("Escribe el nombre del producto: ")
             db = DataBaseInventario(nombre_tabla)
             db.elimininar_datos(producto)
             
