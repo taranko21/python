@@ -35,17 +35,19 @@ class DataBaseInventario:
             f"INSERT INTO {self.nombre_tabla} ({self.nombre}, {self.precio}, {self.cantidad}) VALUES (?,?,?)"
         )
         
-    #------------------------Funcion para consultar una tabla
+    #------------------------Funcion para consultar datos de una tabla
     def consultar_datos(self):
         cursor.execute(
             f"SELECT * FROM {self.nombre_tabla} "
         )
-            
+        
+    #------------------------Funcion para eliminar datos de una tabla            
     def elimininar_datos(self):
         cursor.execute(
             f"DELETE FROM {self.nombre_tabla} WHERE {self.nombre}"
         )
         
+    #------------------------Funcion para cerrar conexion de una database
     def cerrar_conexion(self):
         conexion.close()
     
