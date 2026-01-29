@@ -8,8 +8,7 @@ while(1):
     print("2.-Agrega productos a la tabla")
     print("3.-Consultar datos")
     print("4.-Eliminar datos")
-    print("6.-Cerrar conexion")
-    print("7.-Break")
+    print("5.-Cerrar conexion")
     opcion = input("Escriba un numero del menu para realizar una tarea: ")
     
     
@@ -44,3 +43,4 @@ while(1):
         case 5:
             db = DataBaseInventario()
             db.elimininar_datos
+            break
