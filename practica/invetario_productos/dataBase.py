@@ -32,6 +32,7 @@ class DataBaseInventario:
             f"INSERT INTO {self.nombre_tabla} ({self.nombre}, {self.precio}, {self.cantidad}) VALUES (?,?,?)",
             (nombre,precio,cantidad)
         )
+        self.conexion.commit()
         
     #------------------------Funcion para consultar datos de una tabla
     def consultar_datos(self):
@@ -46,7 +47,7 @@ class DataBaseInventario:
         self.cursor.execute(
             f"DELETE FROM {self.nombre_tabla} WHERE {self.nombre}"
         )
-        self.conexion_commit()
+        self.conexion.commit()
         
     #------------------------Funcion para cerrar conexion de una database
     def cerrar_conexion(self):
