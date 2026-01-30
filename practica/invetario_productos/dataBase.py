@@ -29,7 +29,7 @@ class DataBaseInventario:
     #--------------------Funcion para insertar datos a una tabla
     def insertar_datos(self, nombre,precio,cantidad):
         self.cursor.execute(
-            f"INSERT INTO {self.nombre_tabla} ({self.nombre}, {self.precio}, {self.cantidad}) VALUES (?,?,?)",
+            f"INSERT INTO {self.nombre_tabla} (nombre,precio,cantidad) VALUES (?,?,?)",
             (nombre,precio,cantidad)
         )
         self.conexion.commit()
