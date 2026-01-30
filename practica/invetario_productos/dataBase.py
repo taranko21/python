@@ -45,7 +45,7 @@ class DataBaseInventario:
     #------------------------Funcion para eliminar datos de una tabla            
     def elimininar_datos(self,nombre):
         self.cursor.execute(
-            f"DELETE FROM {self.nombre_tabla} WHERE {self.nombre}"
+            f"DELETE FROM {self.nombre_tabla} WHERE nombre = {self.nombre}"
         )
         self.conexion.commit()
         
