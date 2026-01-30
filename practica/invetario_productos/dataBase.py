@@ -18,9 +18,9 @@ class DataBaseInventario:
             f"""
             CREATE TABLE IF NOT EXISTS {self.nombre_tabla}  (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                {self.nombre} TEXT NO NULL,
-                {self.precio} DECIMAL,
-                {self.cantidad} INTEGER
+                nombre TEXT NO NULL,
+                precio DECIMAL,
+                cantidad INTEGER
             )    
             """
         )
