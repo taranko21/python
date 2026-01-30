@@ -16,7 +16,7 @@ while(1):
         case "1":
             nombre_tabla = input("Escriba el nombre de la tabla: ")
             db = DataBaseInventario(nombre_tabla)
-            db.crear_tabla
+            db.crear_tabla()
             
         case "2":
             nombre_tabla = input("Escriba el nombre de la tabla: ")
