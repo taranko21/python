@@ -9,7 +9,7 @@ class DataBaseInventario:
         self.nombre = nombre
         self.precio = precio
         self.cantidad = cantidad
-        self.conexion = sqlite3.connect("productos.db")
+        self.conexion = sqlite3.connect("Inventario.db")
         self.cursor = self.conexion.cursor()
         
     #----------------------Funcion para crear una tabla
