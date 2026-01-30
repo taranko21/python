@@ -23,8 +23,8 @@ while(1):
             producto = input("Escribe el nombre del producto: ")
             precio = float(input("Escribe el precio del producto: "))
             cantidad = int(input("Escribe la cantidad que hay de ese producto: "))
-            db = DataBaseInventario(nombre_tabla)
-            db.insertar_datos(producto, precio, cantidad)
+            db = DataBaseInventario(nombre_tabla,producto, precio, cantidad)
+            db.insertar_datos()
             
         case "3":
             nombre_tabla = input("Escriba el nombre de la tabla: ")
@@ -36,8 +36,8 @@ while(1):
         case "4":
             nombre_tabla = input("Escriba el nombre de la tabla: ")
             producto = input("Escribe el nombre del producto: ")
-            db = DataBaseInventario(nombre_tabla)
-            db.elimininar_datos(producto)
+            db = DataBaseInventario(nombre_tabla,producto)
+            db.elimininar_datos()
             
         case "5":
             db = DataBaseInventario("temp")
