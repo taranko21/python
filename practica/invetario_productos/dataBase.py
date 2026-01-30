@@ -27,10 +27,10 @@ class DataBaseInventario:
         self.conexion.commit()
 
     #--------------------Funcion para insertar datos a una tabla
-    def insertar_datos(self, nombre,precio,cantidad):
+    def insertar_datos(self):
         self.cursor.execute(
             f"INSERT INTO {self.nombre_tabla} (nombre,precio,cantidad) VALUES (?,?,?)",
-            (nombre,precio,cantidad)
+            (self.nombre,self.precio,self.cantidad)
         )
         self.conexion.commit()
         
@@ -43,9 +43,10 @@ class DataBaseInventario:
         return rows
         
     #------------------------Funcion para eliminar datos de una tabla            
-    def elimininar_datos(self,nombre):
+    def elimininar_datos(self):
         self.cursor.execute(
-            f"DELETE FROM {self.nombre_tabla} WHERE nombre = {nombre}"
+            f"DELETE FROM {self.nombre_tabla} WHERE nombre = ?",
+            (self.nombre,)
         )
         self.conexion.commit()
         
